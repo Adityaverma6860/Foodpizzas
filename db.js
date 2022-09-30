@@ -1,0 +1,15 @@
+const mongoose= require("mongoose");
+
+var mongoURL='mongodb+server://aditya://'
+
+mongoose.connect(mongoURL,{useUnifiedTopology:true,useNewUrlParser:true})
+
+var db= mongoose.connection
+db.on('connected',()=>{
+    console.log('Mongo DB connection Successfull');
+})
+
+db.on('error',()=>{
+    console.log('Mongo DB connection failed');
+})
+module.exports = mongoose
